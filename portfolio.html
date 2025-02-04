@@ -11,6 +11,12 @@
             padding: 0;
             background-color: #f9f9f9;
             color: #333;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.dark-mode {
+            background-color: #333;
+            color: #f9f9f9;
         }
 
         header {
@@ -38,6 +44,7 @@
 
         nav a:hover {
             color: #ff6347;
+            text-decoration: underline;
         }
 
         section {
@@ -56,6 +63,12 @@
             margin: 20px 0;
             padding: 20px;
             border-radius: 8px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.dark-mode .about, body.dark-mode .projects, body.dark-mode .contact {
+            background-color: #444;
+            color: white;
         }
 
         .projects img {
@@ -93,6 +106,16 @@
             padding: 10px;
         }
 
+        footer a {
+            color: white;
+            margin: 0 10px;
+        }
+
+        footer a:hover{
+            color: #ff6347;
+            text-decoration: dashed;
+        }
+
         @media (max-width: 768px) {
             nav a {
                 display: block;
@@ -100,9 +123,42 @@
             }
         }
 
+        /* Dark mode toggle switch */
+        .toggle-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #444;
+            color: white;
+            padding: 10px;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        .toggle-switch span {
+            font-size: 16px;
+        }
+
+        .zoom-image {
+      width: 100%; /* Adjust the width as needed */
+      transition: transform 0.3s ease; /* Smooth transition for the zoom effect */
+      display: block; /* Ensures the image is a block element */
+      margin: 0 auto; /* Centers the image */
+    }
+
+    /* Hover effect to zoom in the image */
+    .zoom-image:hover {
+      transform: scale(1.2); /* Zoom in by 20% */
+    }
+
     </style>
 </head>
 <body>
+
+    <!-- Dark Mode Toggle Button -->
+    <div class="toggle-switch" onclick="toggleDarkMode()">
+        <span>Toggle Dark Mode</span>
+    </div>
 
     <!-- Header Section -->
     <header>
@@ -121,8 +177,8 @@
     <section id="about" class="about">
         <div class="container">
             <h2>About Me</h2>
+            <img src="portfolio_image.jpg" alt="Parth Sharma" style="border-radius: 80%; width: 150px; height: 150px; object-fit: cover;" class="zoom-image">
             <p>Hello! I am Parth Sharma, a second-year student currently pursuing a B.Tech degree in Artificial Intelligence and Machine Learning (AIML) from VIT Chennai. I am passionate about technology and problem-solving, and I aspire to create innovative solutions using AI and ML.</p>
-            <p>My register number is 23BAI1528, and this is my web programming assignment where I showcase my skills and projects!</p>
         </div>
     </section>
 
@@ -165,10 +221,17 @@
     <!-- Footer Section -->
     <footer>
         <p>Follow me on social media:</p>
-        <a href="#" style="color: white; margin: 0 10px;">Facebook</a>
-        <a href="#" style="color: white; margin: 0 10px;">Twitter</a>
-        <a href="#" style="color: white; margin: 0 10px;">Instagram</a>
+        <a href="https://www.instagram.com/shaansharma_01/" target="_blank">Instagram</a>
+        <a href="#">23BAI1528</a>
+        <a href="https://github.com/ParthSharma-001?tab=repositories" target="_blank">github</a>
     </footer>
+
+    <script>
+        // Function to toggle dark mode
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
 
 </body>
 </html>
